@@ -18,3 +18,7 @@ Welcome to my personal portfolio website where am sharing a little bit about mys
 ✅ Skills:Software development skills that i have
 ✅ Projects:Some projects that i have done before
 ✅ Contact:Ways of reaching me
+## 🚀 Live Demo  
+You can check out my portfolio here https://charity-spoko.github.io/Portfolio/
+Clone the repository https://github.com/Charity-spoko/Portfolio.git
+

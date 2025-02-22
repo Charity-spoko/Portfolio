@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Maid Recruiting System</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div id="adminDashboard" style="background: url('maid1.jpg') no-repeat center center;background-size: cover; height: 100vh; width: 500vw; margin: 0; padding: 0;">
+        <h1>Admin Dashboard</h1>
+        
+        <!-- Add New Maid Button -->
+        <button id="addNewMaidBtn">Add New Maid</button>
+        
+        <!-- Maid Profiles Table -->
+        <table id="maidsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Experience</th>
+                    <th>Availability</th>
+                    <th>Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="maidProfilesList">
+                <!-- Maid Profiles will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Modal for Adding/Editing Maid -->
+    <div id="maidModal" class="modal">
+        <div class="modal-content">
+            <h2>Add/Edit Maid Profile</h2>
+            <form id="maidForm">
+                <label for="maidName">Name:</label>
+                <input type="text" id="maidName" placeholder="Maid Name" required><br>
+
+                <label for="maidLocation">Location:</label>
+                <input type="text" id="maidLocation" placeholder="Location" required><br>
+
+                <label for="maidExperience">Experience:</label>
+                <input type="number" id="maidExperience" placeholder="Experience (years)" required><br>
+                <label for="leaveReason">Reason for Leaving Previous Workplace:</label>
+                <textarea id="leaveReason" placeholder="Reason for leaving previous workplace" required></textarea><br>
+
+                <label for="maidSkills">Skills:</label>
+                <textarea id="maidSkills" placeholder="Skills" required></textarea><br>
+
+                <label for="availabilityStatus">Availability:</label>
+                <select id="availabilityStatus">
+                    <option value="Available">Available</option>
+                    <option value="Not Available">Not Available</option>
+                </select><br>
+                <label for="contactNumber">Contact Number:</label>
+                <input type="text" id="contactNumber" placeholder="Contact Number" required><br>
+
+                <label for="emergencyContact">Emergency Contact:</label>
+                <input type="text" id="emergencyContact" placeholder="Emergency Contact" required><br>
+
+
+                <label for="maidPhoto">Photo:</label>
+                <input type="file" id="maidPhoto" accept="image/*"><br>
+
+                <button type="submit" id="submitMaidProfile">Submit</button>
+                <button type="button" id="closeModalBtn">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="manage.js"></script>
+</body>
+</html>
+
+</body>
+</html>

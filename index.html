@@ -3,164 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Charity Spoko - Business Information Systems Student & Aspiring Software Developer">
     <link rel="icon" href="professional-portfolio_3476457.png" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Charity's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Charity Spoko | Portfolio</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             background: url('./IMG-20240329-WA0036.jpg') no-repeat center center/cover;
-            height: vh;
+            background-attachment: fixed;
             scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 70px 20px;
-            background: rgba(0, 0, 0, 0.6);
-            text-align: center;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-        }
-
-        .profile-photo {
-            width: 150px;
-            height: 180px;
-            border-radius: 15%;
-            border: 3px solid #f4d03f; 
-            object-fit: cover;
-            transition: transform 0.3s ease; /* Smooth transition */
-
-        }
-        .profile-photo:hover {
-            transform: scale(1.1); /* Zooms in on hover */
-        }
-        .header-text h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .header-text p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-        }
-
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 15px 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.5em;
-            transition: color 0.3s;
+            margin: 0 20px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
-            color: #f4d03f;
+            color: #00d4ff;
         }
-        section {
-            padding: 100px 20px;
-            text-align: center;
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
             background: rgba(0, 0, 0, 0.7);
-            margin: 50px auto;
-        }
-
-        #about, #skills, #projects, #contact {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        #skills ul, #projects ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #skills li, #projects li {
-            margin: 10px 0;
-            font-size: 1.5em;
-        }
-
-        #contact a {
-            color: #f4d03f;
-            text-decoration: none;
-        }
-
-        #about p {
-            border: 2px dotted #f4d03f;
-            padding: 10px;
-            font-size: 1.5em;
-        }
-
-        footer {
+            backdrop-filter: blur(5px);
             text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            min-height: 60vh;
         }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 220px;
+            border-radius: 15%;
+            border: 4px solid transparent;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), linear-gradient(135deg, #00d4ff, #7b2ff7, #ff006e);
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 15px 50px rgba(123, 47, 247, 0.5);
+        }
+
+        .header-text h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header-text p {
+            font-size: 1.3em;
+            color: #e0e0e0;
+            margin: 8px 0;
+        }
+
+        .header-text .tagline {
+            font-size: 1.5em;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        /* Social Links in Header */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.8em;
+            transition: all 0.3s;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            margin: 50px auto;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        section h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        #about p {
+            border: 2px solid transparent;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), linear-gradient(135deg, #00d4ff, #7b2ff7);
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            padding: 30px;
+            font-size: 1.2em;
+            border-radius: 15px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #about a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        #about a:hover {
+            color: #7b2ff7;
+        }
+
+        /* CV Download Button */
+        .cv-download {
+            margin-top: 30px;
+        }
+
+        .cv-download a {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .cv-download a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(123, 47, 247, 0.5);
+        }
+
+        .cv-download i {
+            margin-right: 8px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00d4ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .skill-card i {
+            font-size: 3em;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .skill-card p {
+            color: #e0e0e0;
+            font-size: 1em;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid rgba(123, 47, 247, 0.2);
+            transition: all 0.4s;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #7b2ff7;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 47, 247, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.8em;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #e0e0e0;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #00d4ff;
+            border: 1px solid #00d4ff;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 25px;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Certifications Section */
+        .cert-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 0, 110, 0.2);
+            max-width: 500px;
+            transition: all 0.4s;
+        }
+
+        .cert-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff006e;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.3);
+        }
+
+        .cert-card i {
+            font-size: 4em;
+            background: linear-gradient(135deg, #ff006e, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .cert-card h3 {
+            font-size: 1.6em;
+            color: #ff006e;
+            margin-bottom: 10px;
+        }
+
+        .cert-card p {
+            color: #e0e0e0;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .cert-issuer {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2.5em;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .contact-item a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+            display: block;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: #00d4ff;
+        }
+
+        /* Back to Top Button */
         #backToTop {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             bottom: 30px;
             right: 30px;
             z-index: 1000;
-            font-size: 18px;
-            background-color: #f4d03f;
-            color: black;
+            font-size: 20px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 15px 18px;
+            border-radius: 50%;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 5px 25px rgba(0, 212, 255, 0.4);
+            width: 55px;
+            height: 55px;
         }
 
         #backToTop:hover {
-            background-color: #d4ac0d;
-        }
-        body.dark-mode {
-            background: #1a1a1a;
-            color: #f4d03f;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(123, 47, 247, 0.6);
         }
 
-        body.dark-mode section {
-            background: rgba(255, 255, 255, 0.1);
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.95);
+            margin-top: 50px;
         }
 
-        body.dark-mode nav {
-            background: rgba(255, 255, 255, 0.2);
+        footer p {
+            color: #e0e0e0;
+            font-size: 1.1em;
         }
 
-
-        /* Media Queries */
-
-        /* Tablet styles (768px and smaller) */
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                text-align: center;
+                gap: 30px;
             }
 
             .profile-photo {
-                width: 120px;
-                height: 150px;
+                width: 150px;
+                height: 180px;
+            }
+
+            .header-text h1 {
+                font-size: 2.5em;
+            }
+
+            .header-text p {
+                font-size: 1.1em;
+            }
+
+            nav a {
+                font-size: 0.95em;
+                margin: 0 12px;
+            }
+
+            section {
+                padding: 60px 15px;
+                margin: 30px 15px;
+            }
+
+            section h2 {
+                font-size: 2.2em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .profile-photo {
+                width: 130px;
+                height: 160px;
             }
 
             .header-text h1 {
@@ -172,158 +535,209 @@
             }
 
             nav a {
-                font-size: 1.2em;
-                margin: 0 10px;
+                font-size: 0.85em;
+                margin: 0 8px;
             }
 
             section {
-                padding: 80px 10px;
+                padding: 40px 10px;
             }
 
-            #skills li, #projects li {
-                font-size: 1.2em;
-            }
-        }
-
-        /* Mobile styles (375px and smaller) */
-        @media screen and (max-width: 375px) {
-            .profile-photo {
-                width: 100px;
-                height: 120px;
-            }
-
-            .header-text h1 {
+            section h2 {
                 font-size: 1.8em;
             }
 
-            .header-text p {
-                font-size: 0.9em;
-            }
-
-            nav a {
-                font-size: 1em;
-                margin: 0 5px;
-            }
-
-            section {
-                padding: 50px 10px;
-            }
-
-            #skills li, #projects li {
-                font-size: 1em;
-            }
-
-            #contact a {
-                word-wrap: break-word; /* this will break words that are longer than the container*/
+            .social-links a {
+                font-size: 1.5em;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#about">About Me</a>
+        <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
-        <button id="darkModeToggle">🌙 Dark Mode</button>
     </nav>
 
     <header>
         <div class="header-content">
-            <img src="profile.jpg" alt="Charity's Profile Photo" class="profile-photo" data-aos="flip-right" data-aos-easing="ease-out-cubic"
-            data-aos-duration="3000">
+            <img src="profile.jpg" alt="Charity Spoko" class="profile-photo" data-aos="flip-right" data-aos-duration="1000">
             <div class="header-text">
-                <h1 data-aos="fade-up-left" data-aos-duration="3000">Charity Spoko</h1>
-                <p data-aos="fade-up-left" data-aos-duration="3000">Business Information Systems Student</p>
-                 <p data-aos="fade-up-left" data-aos-duration="3000">an aspiring software developer</p>
+                <h1 data-aos="fade-left" data-aos-duration="1000">Charity Spoko</h1>
+                <p data-aos="fade-left" data-aos-duration="1200">Business Information Systems Student</p>
+                <p class="tagline" data-aos="fade-left" data-aos-duration="1400">Aspiring Software Developer</p>
+                <div class="social-links" data-aos="fade-up" data-aos-duration="1600">
+                    <a href="https://github.com/charity-spoko" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/charity-spoko-liwewe-2160a22b1/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
-        <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-out-cubic" data-aos-delay="300">I am a fourth-year student doing Business Information Systems and have been previledged to be one of the beneficiaries for the  full-stack webdevelopment certification program offered by <a href="https://www.code-blossom.com/" target="_blank">Code Blossom</a>.
-            I am passionate about web&ndash;development, network security, and automating systems. I enjoy solving challenges and learning new technologies.</p>
-            </section>
+        <p data-aos="fade-up" data-aos-duration="1000">
+            I am a final-year Business Information Systems student privileged to be a beneficiary of the full-stack web development certification program offered by <a href="https://www.code-blossom.com/" target="_blank">Code Blossom</a>. 
+            I am passionate about web development, network security, and automating systems. I enjoy solving complex challenges, learning emerging technologies, and transforming ideas into innovative, user-centered digital solutions.My goal is to contribute to impactful software projects that promote efficiency, accessibility, and innovation.
+        </p>
+        <div class="cv-download" data-aos="fade-up" data-aos-duration="1200">
+            <a href="CHARITY_SPOKO_CV_FutecAI.pdf" download><i class="fas fa-download"></i> Download My CV</a>
+        </div>
+    </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-out-cubic" data-aos-delay="300">Web&ndash;Development (HTML, CSS, JavaScript, PHP)</li>
-            <li data-aos="fade-right" data-aos-offset="250" data-aos-easing="ease-out-cubic" data-aos-delay="250">Linux System Automation</li>
-            <li data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-delay="200">Network Security</li>
-            <li data-aos="fade-right" data-aos-offset="150" data-aos-easing="ease-out-cubic" data-aos-delay="150">Accounting</li>
-            <li data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-out-cubic" data-aos-delay="100">Database Management</li>
-        </ul>
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="800">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, PHP, Bootstrap 5</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Development</h3>
+                <p>Flutter, Android Development</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1200">
+                <i class="fas fa-database"></i>
+                <h3>Database Management</h3>
+                <p>Firestore, MySQL, Data Modeling</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-duration="1800">
+                <i class="fas fa-chart-line"></i>
+                <h3>Data Analysis</h3>
+                <p>Data Concepts, Analysis & Reporting</p>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-delay="200">Maid Recruiting System (Second year) <a href="Maid_recruiting/" target="="_blank">Maid_recruiting</a></li>
-            <li data-aos="fade-right" data-aos-offset="250" data-aos-easing="ease-out-cubic" data-aos-delay="250">Linux Automation Scripts for Updates (third year)<a href="IMPLEMENTING AN AUTOMATED SYSTEM UPDATE IN UBUNTU LINUX OPERATING SYSTEMS.docx" target="_blank">Automated System Update</a></li>
-        </ul>
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1000">
+                <h3><i class="fas fa-hand-holding-usd"></i> Loan Management System</h3>
+                <p>Final year project developed for ECLOF Malawi. A comprehensive mobile application with an administrative web dashboard for managing microfinance loans efficiently.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Bootstrap 5</span>
+                    <span class="tech-tag">Firestore</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://charity-spoko.github.io/eclofloans/"><i class="fas fa-globe"></i> Web Dashboard</a>
+                    <a href="app-release.apk"><i class="fab fa-android"></i> Android APK</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1200">
+                <h3><i class="fas fa-search"></i> Lost & Found Mobile App</h3>
+                <p>Collaborative project enabling users to post and search for lost items. A community-driven platform connecting people who have lost items with those who have found them.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Mobile Development</span>
+                    <span class="tech-tag">Real-time Database</span>
+                    <span class="tech-tag">Collaboration</span>
+                </div>
+                <div class="project-links">
+                     <a href="app-release2.apk"><i class="fab fa-android"></i> Android APK</a>
+                    <a href="https://github.com/Samson-prog254/Lost-found-app"><i class="fab fa-github"></i> View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications & Achievements</h2>
+        <div class="cert-container">
+            <div class="cert-card" data-aos="flip-left" data-aos-duration="1000">
+                <i class="fas fa-certificate"></i>
+                <h3>Introduction to Data Concepts</h3>
+                <p class="cert-issuer">IBM</p>
+                <p>Comprehensive training in fundamental data analysis concepts, data structures, and analytical methodologies.</p>
+            </div>
+            <div class="cert-card" data-aos="flip-left" data-aos-duration="1200">
+                <i class="fas fa-code"></i>
+                <h3>Full-Stack Web Development</h3>
+                <p class="cert-issuer">Code Blossom</p>
+                <p>Intensive certification program covering modern web development technologies and best practices.</p>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p data-aos="fade-up-left" data-aos-duration="2500">Email: <a href="mailto:liwewecharity@gmail.com">liwewecharity@gmail.com</a></p>
-        <p data-aos="fade-up-left" data-aos-duration="2000">Email: <a href="mailto:bis20-cspoko@mubas.ac.mw">bis20-cspoko@mubas.ac.mw</a></p>
-        <p data-aos="fade-up-left" data-aos-duration="1500">Phone: <a href="tel:+265885745016">+265 885745016</a></p>
-        <p data-aos="fade-up-left" data-aos-duration="1000">WhatsApp: <a href="https://wa.me/265885745016">Chat with me on WhatsApp</a></p>
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item" data-aos="fade-up" data-aos-duration="800">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:liwewecharity@gmail.com">liwewecharity@gmail.com</a>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-duration="1000">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:bis20-cspoko@mubas.ac.mw">bis20-cspoko@mubas.ac.mw</a>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-duration="1200">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+265885745016">+265 885745016</a>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-duration="1400">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/265885745016">WhatsApp Chat</a>
+            </div>
+        </div>
     </section>
-    <button id="backToTop" title="Go to top">↑ Top</button>
+
+    <button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
     <footer>
-        <p>&copy; 2025 Charity Spoko</p>
+        <p>&copy; 2025 Charity Spoko. All Rights Reserved.</p>
     </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
-      </script>
-    <script>
-        // Get the button element
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Back to Top Button
         const backToTopButton = document.getElementById("backToTop");
 
-        // Show or hide the button based on scroll position
-        window.onscroll = function () {
+        window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 backToTopButton.style.display = "block";
-            } 
-            else {
+            } else {
                 backToTopButton.style.display = "none";
             }
         };
 
-        // Smooth scroll to top when button is clicked
-        backToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-        });
-    });
-    </script>
-    <script>
-        const darkModeToggle = document.getElementById("darkModeToggle");
-
-            darkModeToggle.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-
-            // Save the user's preference
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            darkModeToggle.textContent = "☀️ Light Mode";
-        }else {
-            localStorage.setItem("theme", "light");
-            darkModeToggle.textContent = "🌙 Dark Mode";
-        }
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
 
-        // Load user preference
-        if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
-        darkModeToggle.textContent = "☀️ Light Mode";
-        }
-
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 80;
+                const targetPosition = target.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
